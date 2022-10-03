@@ -1,0 +1,838 @@
+<!DOCTYPE html><html xmlns="https://www.w3.org/1999/xhtml" lang="en-US"><head><meta charset="utf-8"> <title>Basketball Stars</title><meta name="description" content="Basketball Stars is the most exciting two-player game for gamers who are fans of basketball. It's great to win a medal while playing and see your name appear on the leaderboard!"><meta name="keywords" content="Basketball Stars"><meta name="title" content="Basketball Stars"><meta property="fb:app_id" content><meta property="og:title" content="Basketball Stars"><meta property="og:site_name" content="Basketball Stars"><link rel="image_src" href="https://basketball-stars.co/data/image/basketball-star.jpeg"><meta property="og:type" content="article"><meta property="og:url" content="https://basketball-stars.co"><meta property="og:description" content="Basketball Stars is the most exciting two-player game for gamers who are fans of basketball. It's great to win a medal while playing and see your name appear on the leaderboard!"><meta property="og:image" content="images/basketball-star.jpeg"> <meta name="viewport" content="width=device-width, initial-scale=1.0, minimal-ui, shrink-to-fit=no viewport-fit=cover"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><meta name="apple-mobile-web-app-title" content="Basketball Stars"><meta name="HandheldFriendly" content="true"><meta name="mobile-web-app-capable" content="yes"><link rel="shortcut icon" sizes="512x512" href="favicon.ico"><link rel="icon" type="image/x-icon" href="favicon_1.ico"><link rel="apple-touch-icon" href="favicon.ico"><meta http-equiv="x-ua-compatible" content="ie=edge"> <link rel="canonical" href="https://basketball-stars.co" data-react-helmet="true"><script async src="https://www.googletagmanager.com/gtag/js?id=G-W0G1WRPKLX"></script><script>window.dataLayer = window.dataLayer || [];
+ function gtag() {
+ dataLayer.push(arguments);
+ }
+ gtag('js', new Date());
+
+ gtag('config', 'G-W0G1WRPKLX');</script> <link href="css/styles.css" rel="stylesheet"><link href="css/styles_v1.css" rel="stylesheet" type="text/css"> <link data-n-head="ssr" rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5636557392151555" crossorigin="anonymous"></script> </head><body> <div id="root"><div class="content_site"> <div class="layout">
+<header class="Header"><div class="left"> <a class="Logo animated tada delay-4s" href="/"><img src="images/logo.png" alt="Basketball Stars" class="symbol"> </a> </div><div class="right-relative"> <ul class="menu-header"><li><a class="menu-sidebar-item" title="Basketball Stars" href="/"><div class>
+Basketball Stars </div></a> </li>
+<li><a class="menu-sidebar-item" title="Slope" href="/slope"><div class>
+Slope </div></a> </li>
+<li><a class="menu-sidebar-item" title="Basket Random" href="/basket-random"><div class>
+Basket Random </div></a> </li>
+<li><a class="menu-sidebar-item" title="Basketball Legends" href="/basketball-legends"><div class>
+Basketball Legends </div></a> </li>
+<li><a class="menu-sidebar-item" title="Blumgi Ball" href="/blumgi-ball"><div class>
+Blumgi Ball </div></a> </li>
+<li><a class="menu-sidebar-item" title="Basketball" href="/basketball.games"><div class>
+Basketball </div></a> </li>
+</ul> <div class="search-menu"><input class="SearchInput" id="search" type="text" autocomplete="off" placeholder="Search games...." value> <a id="search_game"><img class="icon-search-blue" src="images/icon-search.png"></a><div id="results" style="display:none;"> </div> </div> </div></header>
+<script>window.addEventListener("DOMContentLoaded", function () {
+ load_menu_css();
+
+ });
+ function load_menu_css()
+ {
+ jQuery("a.menu-sidebar-item").removeClass('active');
+ var href = window.location.href;
+ var path_name = window.location.pathname;
+
+ jQuery("a.menu-sidebar-item").each(function (e) {
+ var current_url = jQuery(this).attr('href');
+ if (href == current_url || href == current_url + "/" || path_name == current_url)
+ {
+ jQuery(this).addClass("active");
+ }
+ });
+
+ }</script>
+<main class="full-width"><div class="GamePlay"><div class="GameSectionPlay"><div class="embed-responsive"><iframe class="game-iframe" loading="lazy" src="basketball-stars.embed" id="game-area" width="788" height="550" scrolling="none" frameborder="0" allowfullscreen></iframe> </div> <div class="buttons"> <h1>Basketball Stars</h1><div class="button-gammes"><div class="rating_this" itemscope itemtype="https://schema.org/Game"><span class="rating-game" id="default-demo" data-id="1" style="cursor: pointer; width: 100px;" data-score="4.27" data-readonly></span><span itemprop="name" class="name-game">Basketball Stars</span><div itemprop="aggregateRating" itemscope itemtype="https://schema.org/AggregateRating" class="aggregate-text"><span property="v:count" itemprop="reviewCount" id="countrate" class="hidden">644</span><span rel="v:rating"><span typeof="v:Rating"><span property="v:average" itemprop="ratingValue" id="averagerate"> 4.27</span><span itemprop="bestRating" content="5" class="hidden" property="v:best">5</span> </span></span></div></div> <script>window.addEventListener("DOMContentLoaded", function () {
+		var readdddonly;
+		readdddonly = jQuery('#default-demo').attr('data-readonly');
+		jQuery('#default-demo').raty({
+			readOnly: readdddonly,
+			cancelOff: '/themes/basketball-star/resources/plugin/raty/images/cancel-off.png',
+			cancelOn: '/themes/basketball-star/resources/plugin/raty/images/cancel-on.png',
+			starHalf: '/themes/basketball-star/resources/plugin/raty/images/star-half-big.png',
+			starOff: '/themes/basketball-star/resources/plugin/raty/images/star-off-big.png',
+			starOn: '/themes/basketball-star/resources/plugin/raty/images/star-on-big.png',
+			half: true,
+			number: 5,
+			numberMax: 5,
+			score: function () {
+				return jQuery(this).attr('data-score');
+			},
+			click: function (score, evt) {
+				var game_id = jQuery(this).attr('data-id');
+				var rate = jQuery(this).attr('data-score');
+				var url = '/game-rate.ajax';
+				var data = {'game_id': game_id, 'score': score};
+				jQuery.ajax({
+					type: "POST",
+					url: url,
+					data: data,
+					cache: false,
+					success: function (html) {
+						var data = jQuery.parseJSON(html);
+						var average = (Math.round(parseFloat(data.rate_score) / parseFloat(data.rate_count) * 100) / 100);
+						jQuery('#countrate').text(data.rate_count);
+						jQuery('#averagerate').text(average);
+
+						jQuery('#default-demo').raty({
+							readOnly: true,
+							cancelOff: '/themes/basketball-star/resources/plugin/raty/images/cancel-off.png',
+							cancelOn: '/themes/basketball-star/resources/plugin/raty/images/cancel-on.png',
+							starHalf: '/themes/basketball-star/resources/plugin/raty/images/star-half-big.png',
+							starOff: '/themes/basketball-star/resources/plugin/raty/images/star-off-big.png',
+							starOn: '/themes/basketball-star/resources/plugin/raty/images/star-on-big.png',
+							half: true,
+							number: 5,
+							numberMax: 5,
+							score: score
+						});
+					},
+					error: function () {
+						jQuery('#default-demo').raty({
+							readOnly: true,
+							cancelOff: '/themes/basketball-star/resources/plugin/raty/images/cancel-off.png',
+							cancelOn: '/themes/basketball-star/resources/plugin/raty/images/cancel-on.png',
+							starHalf: '/themes/basketball-star/resources/plugin/raty/images/star-half-big.png',
+							starOff: '/themes/basketball-star/resources/plugin/raty/images/star-off-big.png',
+							starOn: '/themes/basketball-star/resources/plugin/raty/images/star-on-big.png',
+							half: true,
+							number: 5,
+							numberMax: 5,
+							score: rate,
+						});
+					}
+				});
+			}
+		});
+	});</script>
+<style type="text/css">.rate-title { display: none; } .rating_this{display: flex; justify-content: flex-start; align-items: flex-start;}.name-game{display: none;} .rating-game{ padding-right: 10px; width:auto !important; }.rating-game_this{font-family: inherit;} .rating-game img{ height:18px; } .aggregate-text{display: inline-block; font-size: 18px;} .rating-gamethis{ display: block; text-align: center; color:#000; padding-top:5px; }</style> <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5cfb6e576a14ef3a"></script> <div class="addthis_inline_share_toolbox"></div> <div role="button" title="Go fullscreen" class="ButtonFullscreen button"><div class="icon icon-maximize-dark-gray" id="full_screen" onclick="open_fullscreen()"><svg xmlns="http://www.w3.org/2000/svg" style="fill:#fff;" viewBox="0 0 448 512"><path d="M0 180V56c0-13.3 10.7-24 24-24h124c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12H64v84c0 6.6-5.4 12-12 12H12c-6.6 0-12-5.4-12-12zM288 44v40c0 6.6 5.4 12 12 12h84v84c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12V56c0-13.3-10.7-24-24-24H300c-6.6 0-12 5.4-12 12zm148 276h-40c-6.6 0-12 5.4-12 12v84h-84c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h124c13.3 0 24-10.7 24-24V332c0-6.6-5.4-12-12-12zM160 468v-40c0-6.6-5.4-12-12-12H64v-84c0-6.6-5.4-12-12-12H12c-6.6 0-12 5.4-12 12v124c0 13.3 10.7 24 24 24h124c6.6 0 12-5.4 12-12z"/></svg></div></div></div></div> <div class="ads728x90"><script async src="js/adsbygoogle.js"></script> <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-5636557392151555" data-ad-slot="6113373024" data-ad-format="auto"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script> </div><div class="content-game clearfix"><div><h2><span>About</span></h2><p><span><a href="https://basketball-stars.co/">Basketball Stars</a> is the most exciting two-player game for gamers who are fans of basketball. </span><span> </span><span>Developed by Madpuffers, this game impresses with vivid 3D graphics and the flexibility of the ways to play as well as the upgrade of players.</span></p><p><span>Basketball Stars is a game that is considered</span><span> to have detailed, deep, and meticulous graphics. This is especially evident through the clear lines on each player's body and the very rhythmic and flexible hitting actions, just like in real life.</span></p><p><span>Would you like to play with some true-famous basketball legends like LeBron James, Derrick Williams, and Stephen Curry? With Basketball Stars, you can compete against the greats!</span> <span>This game has two options for all players: you can play a quick match or an entire tournament.</span> <span>Otherwise, </span><span>you can also play with family and friends in two-player mode or solo in single player mode. It's great to win a medal while playing and see your name appear on the leaderboard!</span></p><h2>Features</h2><p><span>⛹‍♀</span><span> Play basketball in an authentic way.</span><span><br></span> <span>⛹‍♀</span><span> Easily choose to play in a tournament or a match of your choice.</span><span><br></span><span>⛹‍♀ Online game mode with many different players.</span><span><br></span><span>⛹‍♀ Manipulate Dribble, feint, shoot, steal, smash, block... in a powerful way.</span><span><br></span><span>⛹‍♀ Gain medals by conquering the extended career mode.</span><span><br></span><span>⛹‍♀ There are many famous football teams.</span><span><br></span><span>⛹‍♀ Play Basketball Stars for free.</span><span><br></span><span>⛹‍♀ More than 60 basketballs can be unlocked.</span><span><br></span><span>⛹‍♀ You'll be able to personalize the look of your basketball player by changing the hairstyle, skin color, jersey type, and many other accessories you want.</span></p><h2>Related games</h2><p><span>If you love Basketball Stars, try the latest Basketball King 2022. In addition, you can also choose from other <a href="https://basketball-stars.co/tag/basketball">basketball</a> related games like <a href="https://basketball-stars.co/basketball-serial-shooter">Basketball Serial Shooter</a>, <a href="https://basketball-stars.co/dunkers-fight-2p">Dunkers Fight 2P</a>, <a href="https://basketball-stars.co/basketball-with-buddies">Basketball with Buddies</a>, <a href="https://basketball-stars.co/basket-champ">Basket Champ</a>, etc.</span></p> </div><div class="clearfix"></div><div> <h2>How to play</h2><p>To start the game, create groups so you<span> can play together with friends or play solo in 1v2 and 2v2 basketball games. In addition, you can also play seriously in tournament mode to become a basketball legend.</span></p><p><span>Each round will last 1 minute, and the main goal is to score more points than your opponent by throwing the ball through the hoop.</span><span> You can dunk, score 3-pointers, pass the ball to your teammates, shoot, steal, smash, and more.</span></p><p><span>During gameplay, for simple level plays, all you have to do is use the keyboard to throw the ball into the basket. </span><span>You try to score as many goals as possible in a limited time.</span> <span>In the 1 vs. 1 mode,</span><span> you'll have to trick your opponent into thinking you're going one lane, but then swing in the other direction to find the right opportunity to shoot for the basket. On the contrary, when you are defending, you will have to try to steal the ball and not let the opponent throw it.</span></p><p><span>This game allows you to choose one of the famous basketball stars as your opponent, including LeBron James, Michael Jordan, Dennis Rodman, James Harden, Stephen Curry, Shaquille O'Neal, Derrick Williams, and many more basketball legends! Each player in the Basketball Star lineup has a special ability, so you can leverage the strengths of each of these players to form the team that's best for you.</span></p><p><span>As you play and win competitions, you will advance from one level to the next to gain new enhancements to your character.</span></p><p><span>The steps you need to remember are as follows:</span></p><h3>Player one</h3><ul><li><span>WASD - Move</span></li><li><span>B - Shoot / Take Action</span></li><li><span>S - Pump</span></li><li><span>V - Super shot</span></li><li><span>D twice - Dash</span></li></ul><h3>Player two</h3><ul><li><span>Arrow keys - Move</span></li><li><span>L-Shoot/Take action.</span></li><li><span>Down Arrow - Pump</span></li><li><span>K-Super shot</span></li><li><span>Double Left Arrow-Dash</span></li></ul></div><div class="clearfix"></div>
+<div class="categories scale-button"><a href="/sports.games"> <span class="categoryName">SPORTS</span> </a></div><div class="categories scale-button"><a href="/basketball.games"> <span class="categoryName">BASKETBALL</span> </a></div>
+<div class="tag scale-button"><a href="/tag/basket"> <span class="categoryName">basket</span> </a></div><div class="tag scale-button"><a href="/tag/ball"> <span class="categoryName">ball</span> </a></div><div class="tag scale-button"><a href="/tag/action"> <span class="categoryName">action</span> </a></div><div class="tag scale-button"><a href="/tag/2players"> <span class="categoryName">2players</span> </a></div><div class="tag scale-button"><a href="/tag/basketball"> <span class="categoryName">basketball</span> </a></div><div class="tag scale-button"><a href="/tag/sports"> <span class="categoryName">sports</span> </a></div><div class="tag scale-button"><a href="/tag/basketball-stars"> <span class="categoryName">basketball stars</span> </a></div><div class="clearfix"></div></div><section class="GameSectionRecommended game-related"><div class="title-list"><h3>You might also like</h3> <a href="/new-games">see more</a></div><div class="body">
+<a class="game-item" href="/flipper-dunk"><div class="list-game"><div class="list-thumbnail"><img src="images/flipper-dunk-img-f150x150.png" alt="Flipper Dunk"><div class="game-title">Flipper Dunk</div> </div></div></a><a class="game-item" href="/basketball-simulator-3d"><div class="list-game"><div class="list-thumbnail"><img src="images/basketball-simulator-3d-img-f150x150.png" alt="Basketball Simulator 3D"><div class="game-title">Basketball Simulator 3D</div> </div></div></a><a class="game-item" href="/hoop-star"><div class="list-game"><div class="list-thumbnail"><img src="images/hoop-star-img-f150x150.png" alt="Hoop Star"><div class="game-title">Hoop Star</div> </div></div></a><a class="game-item" href="/hop-hop-dunk"><div class="list-game"><div class="list-thumbnail"><img src="images/hop-hop-dunk-img-f150x150.png" alt="Hop Hop Dunk"><div class="game-title">Hop Hop Dunk</div> </div></div></a><a class="game-item" href="/legends-basketball-stars"><div class="list-game"><div class="list-thumbnail"><img src="images/legends-basketball-stars-img-f150x150.png" alt="Legends Basketball Stars"><div class="game-title">Legends Basketball Stars</div> </div></div></a><a class="game-item" href="/swipe-basketball"><div class="list-game"><div class="list-thumbnail"><img src="images/swipe-basketball-img-f150x150.png" alt="Swipe Basketball"><div class="game-title">Swipe Basketball</div> </div></div></a><a class="game-item" href="/basket-monsterz"><div class="list-game"><div class="list-thumbnail"><img src="images/basket-monsterz-img-f150x150.png" alt="Basket Monsterz"><div class="game-title">Basket Monsterz</div> </div></div></a><a class="game-item" href="/basket-fall"><div class="list-game"><div class="list-thumbnail"><img src="images/basket-fall-img-f150x150.png" alt="Basket Fall"><div class="game-title">Basket Fall</div> </div></div></a><a class="game-item" href="/street-basketball"><div class="list-game"><div class="list-thumbnail"><img src="images/street-basketball-img-f150x150.png" alt="Street Basketball"><div class="game-title">Street Basketball</div> </div></div></a><a class="game-item" href="/dunk-fall"><div class="list-game"><div class="list-thumbnail"><img src="images/dunk-fall-img-f150x150.png" alt="Dunk Fall"><div class="game-title">Dunk Fall</div> </div></div></a><a class="game-item" href="/battles-of-seas"><div class="list-game"><div class="list-thumbnail"><img src="images/battles-of-seas-img-f150x150.png" alt="Battles of Seas"><div class="game-title">Battles of Seas</div> </div></div></a><a class="game-item" href="/mahjong-pirate-plunder-journey"><div class="list-game"><div class="list-thumbnail"><img src="images/mahjong-pirate-plunder-journey-img-f150x150.png" alt="Mahjong Pirate Plunder Journey"><div class="game-title">Mahjong Pirate Plunder Journey</div> </div></div></a><a class="game-item" href="/epic-hole-runner"><div class="list-game"><div class="list-thumbnail"><img src="images/epic-hole-runner-img-f150x150.png" alt="Epic Hole Runner"><div class="game-title">Epic Hole Runner</div> </div></div></a><a class="game-item" href="/fps-assault-shooter"><div class="list-game"><div class="list-thumbnail"><img src="images/fps-assault-shooter-img-f150x150.png" alt="FPS Assault Shooter"><div class="game-title">FPS Assault Shooter</div> </div></div></a><a class="game-item" href="/uphill-rush-10"><div class="list-game"><div class="list-thumbnail"><img src="images/uphill-rush-10-img-f150x150.png" alt="Uphill Rush 10"><div class="game-title">Uphill Rush 10</div> </div></div></a><a class="game-item" href="/giant-rush"><div class="list-game"><div class="list-thumbnail"><img src="images/giant-rush-img-f150x150.png" alt="Giant Rush!"><div class="game-title">Giant Rush!</div> </div></div></a><a class="game-item" href="/super-hoops-basketball"><div class="list-game"><div class="list-thumbnail"><img src="images/super-hoops-basketball-img-f150x150.png" alt="Super Hoops Basketball"><div class="game-title">Super Hoops Basketball</div> </div></div></a><a class="game-item" href="/vex-6"><div class="list-game"><div class="list-thumbnail"><img src="images/vex-6-img-f150x150.png" alt="Vex 6"><div class="game-title">Vex 6</div> </div></div></a><a class="game-item" href="/garden-tales-3"><div class="list-game"><div class="list-thumbnail"><img src="images/garden-tales-3-img-f150x150.png" alt="Garden Tales 3"><div class="game-title">Garden Tales 3</div> </div></div></a><a class="game-item" href="/dinogen-online"><div class="list-game"><div class="list-thumbnail"><img src="images/dinogen-online-img-f150x150.png" alt="Dinogen Online"><div class="game-title">Dinogen Online</div> </div></div></a><a class="game-item" href="/tank-war-multiplayer"><div class="list-game"><div class="list-thumbnail"><img src="images/tank-war-multiplayer-img-f150x150.png" alt="Tank War Multiplayer"><div class="game-title">Tank War Multiplayer</div> </div></div></a><a class="game-item" href="/soccer-free-kick"><div class="list-game"><div class="list-thumbnail"><img src="images/soccer-free-kick-img-f150x150.png" alt="Soccer Free Kick"><div class="game-title">Soccer Free Kick</div> </div></div></a><a class="game-item" href="/parkour-rooftop"><div class="list-game"><div class="list-thumbnail"><img src="images/parkour-rooftop-img-f150x150.png" alt="Parkour Rooftop"><div class="game-title">Parkour Rooftop</div> </div></div></a><a class="game-item" href="/ellie-and-ben-fall-date"><div class="list-game"><div class="list-thumbnail"><img src="images/ellie-and-ben-fall-date-img-f150x150.png" alt="Ellie And Ben Fall Date"><div class="game-title">Ellie And Ben Fall Date</div> </div></div></a><a class="game-item" href="/toon-blast-online"><div class="list-game"><div class="list-thumbnail"><img src="images/toon-blast-online-img-f150x150.png" alt="Toon Blast Online"><div class="game-title">Toon Blast Online</div> </div></div></a><a class="game-item" href="/noob-vs-pro-vs-hacker-vs-god-1"><div class="list-game"><div class="list-thumbnail"><img src="images/noob-vs-pro-vs-hacker-vs-god-1-img-f150x150.png" alt="Noob vs Pro vs Hacker vs God 1"><div class="game-title">Noob vs Pro vs Hacker vs God 1</div> </div></div></a><a class="game-item" href="/raid-heroes-total-war"><div class="list-game"><div class="list-thumbnail"><img src="images/raid-heroes-total-war-img-f150x150.png" alt="Raid Heroes: Total War"><div class="game-title">Raid Heroes: Total War</div> </div></div></a><a class="game-item" href="/color-snake-3d-online"><div class="list-game"><div class="list-thumbnail"><img src="images/color-snake-3d-online-img-f150x150.png" alt="Color Snake 3D Online"><div class="game-title">Color Snake 3D Online</div> </div></div></a>
+</div></section></div> <div class="flex-right"><div class="ads300x600"><script async src="js/adsbygoogle.js"></script> <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-5636557392151555" data-ad-slot="6113373024" data-ad-format="auto"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script> </div> <section class="Section GameSectionRecommended"><div class="box-comment mb16"><div class="header-comment flex-comment" xmlns="http://www.w3.org/1999/html"><div class="title-comment">Comment (13)</div><div class="sort"><a href="javascript:;"><span id="sort_text">Newest</span><svg class="icon-svg"><use href="fonts/icon.svg#Down"/></svg></a><div class="list" id="sort_by"><a class="active" href="javascript:;" data-sort="newest"><span>Newest</span><svg class="icon-svg"><use href="fonts/icon.svg#Checked"/></svg></a><a href="javascript:;" data-sort="oldest"><span>Oldest</span><svg class="icon-svg"><use href="fonts/icon.svg#Checked"/></svg></a><a href="javascript:;" data-sort="popular"><span>Popular</span><svg class="icon-svg"><use href="fonts/icon.svg#Checked"/></svg></a></div></div></div><div id="comments_area"><div class="comment_loading"></div>
+<div class="main-comnent scrollbar-inner" id="list_comment"></div><div class="make-comment"><form id="comment_form" class="form-group"><div class="form-default box-area-input"><textarea class="form-control " id="comment_content" name="comment_content" placeholder="Add comment"></textarea><div class="send-comment"><span href="#" class="send disabled" id="btn_submit"><svg class="icon-svg"><use href="fonts/icon.svg#Send"/></svg></span></div></div><div class="form-default"><div class="form-group"><input type="text" id="comment_author" name="comment_author" class="form-control" placeholder="Name"></div><div class="form-group"><input type="text" class="form-control " id="comment_email" name="comment_email" placeholder="Email"></div> <label class="confir_res"><div class="text">I'd read and agree to the terms and conditions.</div><input type="checkbox" id="comment_confirm" name="comment_confirm"><span class="checkmark"></span></label><input type="hidden" name="parent_id" id="parent_id" value="0"><input name="submit" type="submit" class="submit btn-load-more btn-primary hidden" value="Comment"><input type="button" onclick="reply_all();
+ return false;" id="btn_cancel" class="submit btn-load-more btn-primary pull-right hidden" value="Cancel"></div></form></div><script>window.addEventListener("DOMContentLoaded", function () {
+ $('#comment_confirm').change(function () {
+ if (this.checked) {
+ $("#btn_submit").removeClass("disabled");
+
+ } else {
+ $("#btn_submit").addClass("disabled");
+ }
+
+ });
+
+ validate_form();
+ $("#btn_submit").click(function (event) {
+ if (!$("#btn_submit").hasClass('disabled')) {
+ $("#comment_form").submit();
+ }
+ });
+
+
+ });
+
+ function validate_form() {
+ jQuery("#comment_form").validate(
+ {
+
+ //set this to false if you don't what to set focus on the first invalid input
+ focusInvalid: false,
+ //by default validation will run on input keyup and focusout
+ //set this to false to validate on submit only onkeyup: false,
+ onfocusout: false,
+ //by default the error elements is a <label>errorElement: "div",
+ //place all errors in a <div id="errors"> element
+ errorPlacement: function (error, element) {
+ error.appendTo("div#comment_errors");
+ },
+ ignore: ".ignore",
+ rules: {
+ "comment_content": {
+ required: true,
+ maxlength: 65525
+ },
+ "comment_author": {
+ required: true,
+ maxlength: 200
+ },
+ "comment_email": {
+ required: true,
+ email: true,
+ maxlength: 100
+ },
+ "comment_confirm": {
+ required: true
+ }
+ },
+ messages: {
+ "comment_content": {
+ required: "",
+ maxlength: ""
+ },
+ "comment_author": {
+ required: "",
+ maxlength: ""
+ },
+ "comment_email": {
+ required: "",
+ email: "",
+ maxlength: ""
+ },
+ "comment_confirm": {
+ required: ""
+ }
+ },
+ submitHandler: function () {
+ $("#btn_submit").removeClass("disabled");
+ jQuery(".comment_loading").show();
+ console.log("submit");
+
+ var question_ajax = "/make-comment.ajax";
+ var content = jQuery("#comment_content").val();
+ var author = jQuery("#comment_author").val();
+ var email = jQuery("#comment_email").val();
+ var website = jQuery("#comment_website").val();
+ var parent_id = jQuery("#parent_id").val();
+ var metadataload = {};
+ metadataload.content = content;
+ metadataload.author = author;
+ metadataload.email = email;
+ metadataload.website = website;
+ metadataload.parent_id = parent_id;
+ metadataload.related_id = parseInt("0");
+ metadataload.related_url = "https://basketball-stars.co/basketball-stars";
+
+
+
+ jQuery.ajax({
+ url: question_ajax,
+ data: metadataload,
+ type: 'POST',
+ success: function (data) {
+ jQuery(".comment_loading").hide();
+ if (data != '') {
+ var result = jQuery.parseJSON(data);
+ if (result.result === true) {
+ var comment_data = result.comment;
+ var str_comment = "";
+ if (comment_data.parent_id == 0) {
+
+ //str_comment = "<div id='comment_" + comment_data.id + "' class='replyWrap your_comment clearAfter'><div class='listProfile'><span class='img'><img class='img img-thumbnail' alt='' src='/themes/basketball-star/resources/images/comments/profile-default.png' width='64' height='64'></span><span class='user'>" + comment_data.author + "</span></div><div class='listContent'>" + comment_data.content + "<div class='clearAfter'><div class='left rating'><span>Votes:</span><b class='voteUp' id='comment_voteup_" + comment_data.id + "'>+" + comment_data.like + " </b><span>/</span><b class='voteDown' id='comment_votedown_" + comment_data.id + "'>-" + comment_data.dislike + " </b></div><div class='right'><a class='icon comment' href='javascript:;' onclick='reply_to(" + comment_data.id + "); return false;' title='Add a comment to this comment' rel='nofollow'>Comment</a><a class='icon vote comment_vote_row_" + comment_data.id + " voteUp' href='javascript:;' onclick='comment_vote(" + comment_data.id + ",\"up\"); return false;' title='Vote this comment up (helpful)' rel='nofollow'>Vote up</a><a class='icon vote comment_vote_row_" + comment_data.id + " voteDown' href='javascript:;' onclick='comment_vote(" + comment_data.id + ",\"down\"); return false;' title='Vote this comment down (not helpful)' rel='nofollow'>Vote down</a><a class='icon report hidden' href='javascript:;' onclick='report_comment(" + comment_data.id + "); return false;' title='Report this comment as spam/abuse/inappropriate' rel='nofollow'>Report</a></div></div></div></div>";
+ str_comment = "<div class='item-comment' id='comment_" + comment_data.id + "'><div class='user_status'><a class='avata_coment' href='#' title='" + comment_data.author + "'>T</a><div class='sum-user'><span class='txt-name'>" + comment_data.author + "</span><span class='time-com'> Now</span></div></div><div class='content-comment'><p> " + comment_data.content + "</p><div class='count-option'><div class='count-option__left'><a class='item reply' href='#'><img src='/themes/basketball-star/resources/images/icons/Reply.svg' alt=''><span>Reply</span></a><a class='item vote comment_vote_row_" + comment_data.id + " voteUp' href='#' id='comment_voteup_" + comment_data.id + "' onclick='comment_vote(" + comment_data.id + ",\"up\"); return false;' title='Vote this comment up (helpful)' rel='nofollow'><svg class='icon-svg'><use xlink:href='/themes/basketball-star/resources/images/icons/icon.svg#Like'></use></svg><span class='voteUp' id='comment_voteup_" + comment_data.id + "'>4</span></a><a class='item vote comment_vote_row_(" + comment_data.id + " voteDown' href='javascript:;' onclick='comment_vote(" + comment_data.id + ",\"down\"); return false;' title='Vote this comment down (not helpful)' rel='nofollow'><svg class='icon-svg'><use xlink:href='/themes/basketball-star/resources/images/icons/icon.svg#Dislike'></use></svg><span class='voteDown' id='comment_votedown_" + comment_data.id + "'>4</span></a></div><div class='count-option__right hidden'><a class='item reply' href='#'><svg class='icon-svg'><use xlink:href='/themes/basketball-star/resources/images/icons/icon.svg#Dotted'></use></svg></a></div></div></div></div>";
+ if (comment_data.status == 'trash') {
+ str_comment += "<p class='text-center'><i>Your comment is awaiting moderation</i></p>";
+ }
+ jQuery("#list_comment").prepend(str_comment);
+ } else {
+ str_comment = "<div class='item-comment' id='comment_" + comment_data.id + "'><div class='user_status'><a class='avata_coment' href='#' title='" + comment_data.author + "'>T</a><div class='sum-user'><span class='txt-name'>" + comment_data.author + "</span><span class='time-com'> Now</span></div></div><div class='content-comment'><p> " + comment_data.content + "</p><div class='count-option'><div class='count-option__left'><a class='item reply' href='#'><img src='/themes/basketball-star/resources/images/icons/Reply.svg' alt=''><span>Reply</span></a><a class='item vote comment_vote_row_" + comment_data.id + " voteUp' href='#' id='comment_voteup_" + comment_data.id + "' onclick='comment_vote(" + comment_data.id + ",\"up\"); return false;' title='Vote this comment up (helpful)' rel='nofollow'><svg class='icon-svg'><use xlink:href='/themes/basketball-star/resources/images/icons/icon.svg#Like'></use></svg><span class='voteUp' id='comment_voteup_" + comment_data.id + "'>4</span></a><a class='item vote comment_vote_row_(" + comment_data.id + " voteDown' href='javascript:;' onclick='comment_vote(" + comment_data.id + ",\"down\"); return false;' title='Vote this comment down (not helpful)' rel='nofollow'><svg class='icon-svg'><use xlink:href='/themes/basketball-star/resources/images/icons/icon.svg#Dislike'></use></svg><span class='voteDown' id='comment_votedown_" + comment_data.id + "'>4</span></a></div><div class='count-option__right hidden'><a class='item reply' href='#'><svg class='icon-svg'><use xlink:href='/themes/basketball-star/resources/images/icons/icon.svg#Dotted'></use></svg></a></div></div></div></div>";
+ if (comment_data.status == 'trash') {
+ str_comment += "<p class='text-center'><i>Your comment is awaiting moderation</i></p>";
+ }
+ jQuery("#comment_" + comment_data.parent_id).append(str_comment);
+ jQuery("#comment_form").appendTo(".make-comment");
+ jQuery("#comment_form").removeClass("commentBlock");
+ reply_all();
+ }
+
+ jQuery("#comment_count").html(parseInt(("13")));
+ jQuery("html, body").animate({scrollTop: jQuery("#list_comment").offset().top}, 1000);
+ jQuery("#comment_form").trigger("reset");
+
+ }
+ }
+ }
+ });
+ }
+
+ });
+ }</script><script>function reply_to(comment_id) {
+ jQuery("#comment_form").addClass("commentBlock");
+ jQuery("#btn_cancel").removeClass("hidden");
+ jQuery("#comment_form").trigger("reset");
+ jQuery("#parent_id").val(comment_id);
+ jQuery("#comment_form").appendTo("#comment_" + comment_id);
+ }
+
+ function reply_all() {
+ jQuery("#comment_form").trigger("reset");
+ jQuery("#parent_id").val("0");
+ jQuery("#comment_form").appendTo(".make-comment");
+ jQuery("#btn_cancel").addClass("hidden");
+ jQuery("#comment_form").removeClass("commentBlock");
+ }
+
+ function comment_vote(comment_id, vote) {
+ jQuery(".comment_vote_row_" + comment_id).prop('onclick', null).off('click');
+
+ var comment_comment_voteajax = "/comment-vote.ajax";
+ var metadataload = {};
+ metadataload.comment_id = comment_id;
+ metadataload.vote = vote;
+ jQuery.ajax({
+ url: comment_comment_voteajax,
+ data: metadataload,
+ type: 'POST',
+ success: function (data) {
+ if (data != '') {
+ var result = jQuery.parseJSON(data);
+ if (result.result === true) {
+ var comment_obj = result.comment;
+ switch (vote) {
+ case "up":
+ jQuery("#comment_voteup_count_" + comment_id).html(comment_obj.like);
+ break;
+ case "down":
+ jQuery("#comment_votedown_count_" + comment_id).html(comment_obj.dislike);
+ break;
+ }
+
+ }
+ }
+ }
+ });
+ }
+
+ function report_comment(comment_id) {
+ jQuery("#report_comment_" + comment_id).css("fontSize", 0);
+ jQuery("#report_comment_" + comment_id).prop('onclick', null).off('click');
+ }
+</script><script>window.addEventListener("DOMContentLoaded", function () {
+ jQuery("#btn_comments_area").click(function () {
+ jQuery("html, body").animate({scrollTop: jQuery("#comment_form").offset().top}, 1000);
+ });
+ //
+ jQuery('#load_more_comment').click(function (event) {
+ event.preventDefault();
+ var page = jQuery(this).data("page");
+ var limit = jQuery(this).data("limit");
+ var sort = jQuery(this).data("sort");
+ var url = jQuery(this).data("url");
+ load_comment(page, limit, sort, url, '#list_comment', '');
+ });
+
+ function load_comment(page, limit, sort, url, main_contain_id, refresh) {
+ jQuery("#load_more_comment").remove();
+ jQuery(".comment-load-more").show();
+ var mainposturl = "/comment-paging-v2.ajax";
+ var metadataload = {};
+ metadataload.page = page;
+ metadataload.limit = limit;
+ metadataload.sort = sort;
+ metadataload.url = url;
+ jQuery.ajax({
+ url: mainposturl,
+ data: metadataload,
+ type: 'GET',
+ success: function (data) {
+ jQuery(".comment-load-more").hide();
+ if (refresh === 'f5') {
+ jQuery(main_contain_id).html(data);
+ } else {
+ jQuery(main_contain_id).append(data);
+ }
+ jQuery('#load_more_comment').click(function (event) {
+ event.preventDefault();
+ var page = jQuery(this).data("page");
+ var limit = jQuery(this).data("limit");
+ var sort = jQuery(this).data("sort");
+ var url = jQuery(this).data("url");
+ load_comment(page, limit, sort, url, '#list_comment', '');
+
+ });
+ }
+ });
+ }
+
+ load_comment(1,10, "newest", "https://basketball-stars.co/basketball-stars", "#list_comment", "");
+ //
+ //jQuery('#sort_by').on('change', function () {
+ // load_comment(//,//, "" + this.value + "", "//", "#list_comment", "f5");
+ //});
+ $("#sort_by a").click(function () {
+ $("#sort_by a").removeClass('active');
+ $(this).addClass('active');
+ const sort = $(this).data('sort');
+ load_comment(1,10, "" + sort + "", "https://basketball-stars.co/basketball-stars", "#list_comment", "f5");
+ $("#sort_text").html(sort);
+ });
+ });
+</script></div></div><style>.box-comment {
+ color: #fff;
+ font-family: inherit;
+ border-radius: 16px;
+ padding: 16px;
+ background: #2e3239;
+ -webkit-backdrop-filter: blur(110px);
+ backdrop-filter: blur(110px);
+ }
+ .mb16 {
+ margin-bottom: 16px !important;
+ }
+ .box-comment .header-comment {
+ margin-bottom: 15px;
+ -webkit-box-align: center;
+ -webkit-align-items: center;
+ -ms-flex-align: center;
+ align-items: center;
+ flex-flow: row wrap;
+ -webkit-box-pack: justify;
+ -webkit-justify-content: space-between;
+ -ms-flex-pack: justify;
+ justify-content: space-between;
+ }
+ .box-comment .header-comment .title-comment {
+ font-size: 20px;
+ font-weight: bold;
+ }
+ .box-comment .header-comment .sort {
+ position: relative;
+ display: inline-block;
+ font-size: 14px;
+ }
+ .box-comment .header-comment .sort>a {
+ color: #EBEDF8;
+ font-weight: 500;
+ padding-bottom: 20px;
+ text-decoration: none;
+ }
+ #sort_text {
+ text-transform: capitalize;
+ }
+ .box-comment .header-comment .sort>a svg {
+ width: 12px;
+ height: 12px;
+ margin-left: 4px; 
+ }
+ svg:not(:root) {
+ overflow: hidden;
+ }
+ .count-option__left{
+ display: flex;
+ justify-content: flex-start;
+ align-items: center;
+ }
+ .box-comment .header-comment .sort .list {
+ position: absolute;
+ z-index: 1;
+ top: calc(100% + 20px);
+ background: #fff;
+ box-shadow: 0px 19px 34px rgb(0 0 0 / 5%);
+ border-radius: 4px;
+ padding: 5px 12px;
+ width: 100px;
+ opacity: 0;
+ visibility: hidden;
+ -webkit-transition-duration: 200ms;
+ transition-duration: 200ms;
+ -webkit-transition-property: opacity, top, visible;
+ transition-property: opacity, top, visible;
+ -webkit-transition-timing-function: cubic-bezier(0.7, 1, 0.7, 1);
+ transition-timing-function: cubic-bezier(0.7, 1, 0.7, 1);
+ }
+ .box-comment .header-comment .sort .list a.active {
+ font-weight: 500;
+ }
+ .box-comment .header-comment .sort .list a {
+ color: #000;
+ display: block;
+ margin: 4px 0;
+ font-weight: 400;
+ text-decoration: none;
+ }
+ .box-comment .header-comment .sort .list a.active svg {
+ display: inline-block;
+ }
+
+ .box-comment .header-comment .sort .list a svg {
+ display: none;
+ width: 10px;
+ height: 10px;
+ margin-left: 4px;
+ }
+ .box-comment .main-comnent.scrollbar-inner {
+ padding-right: 10px;
+ margin-right: -10px;
+ max-height: 500px;
+ overflow-x: hidden;
+ overflow-y: scroll;
+ }
+
+ .box-comment .main-comnent {
+ margin-bottom: 30px;
+ }
+ .scroll-wrapper {
+ overflow: hidden !important;
+ padding: 0 !important;
+ position: relative;
+ -ms-overflow-style: none;
+ } 
+ .scroll-wrapper>.scroll-content {
+ border: none !important;
+ box-sizing: content-box !important;
+ height: auto;
+ left: 0;
+ margin: 0;
+ max-height: none;
+ max-width: none !important;
+ overflow: scroll !important;
+ padding: 0;
+ position: relative !important;
+ top: 0;
+ width: auto !important;
+ }
+ .box-comment .item-comment {
+ margin-bottom: 15px;
+ }
+ .box-comment .item-comment .user_status {
+ display: -webkit-box;
+ display: -webkit-flex;
+ display: -ms-flexbox;
+ display: flex;
+ -webkit-box-align: center;
+ -webkit-align-items: center;
+ -ms-flex-align: center;
+ align-items: center;
+ margin-bottom: 5px;
+ }
+ .flex-comment {
+ display: -webkit-box;
+ display: -webkit-flex;
+ display: -ms-flexbox;
+ display: flex;
+ -webkit-flex-wrap: wrap;
+ -ms-flex-wrap: wrap;
+ flex-wrap: wrap;
+ }
+ .box-comment .item-comment .user_status .avata_coment {
+ background: #4B80C9;
+ border-radius: 50%;
+ width: 32px;
+ height: 32px;
+ display: -webkit-box;
+ display: -webkit-flex;
+ display: -ms-flexbox;
+ display: flex;
+ -webkit-box-align: center;
+ -webkit-align-items: center;
+ -ms-flex-align: center;
+ align-items: center;
+ -webkit-box-pack: center;
+ -webkit-justify-content: center;
+ -ms-flex-pack: center;
+ justify-content: center;
+ font-size: 14px;
+ font-weight: bold;
+ margin-right: 6px;
+ text-decoration: none;
+ color: #fff;
+ }
+ .box-comment .item-comment .user_status .sum-user {
+ color: #fff;
+ font-size: 14px;
+ }
+ .box-comment .sub-comment{
+ border-left: 2px dashed rgba(117,148,182,0.4);
+ padding-left: 16px;
+ margin-top: 12px;
+ } 
+ .item-comment .txt-name {
+ max-width: 50px;
+ }
+ .box-comment .item-comment .user_status .sum-user .time-com {
+ margin-left: 4px;
+ }
+ .box-comment .item-comment .content-comment p {
+ margin-bottom: 12px;
+ line-height: 1.4;
+ text-align: left;
+ word-break: break-word;
+ }
+ .content-comment{
+ word-wrap: break-word;
+ }
+ .hidden {
+ display: none !important;
+ }
+ .box-comment .item-comment .count-option a {
+ color: #fff;
+ margin-right: 15px;
+ }
+ .box-comment .item-comment .count-option a {
+ color: #fff;
+ margin-right: 15px;
+ display: flex;
+ justify-content: flex-start;
+ align-items: center;
+ text-decoration: none;
+ }
+ .box-comment .item-comment .count-option a:last-child {
+ margin-right: 0;
+ }
+ .btn-load-more:not(:disabled):not(.disabled) {
+ cursor: pointer;
+ }
+
+ .form-control {
+ display: block;
+ width: 100%;
+ padding: 0.375rem 0.75rem;
+ font-size: 1rem;
+ line-height: 1.5;
+ color: #495057;
+ background-color: #fff;
+ background-clip: padding-box; 
+ border-radius: 0.25rem;
+ transition: border-color .15s ease-in-out,box-shadow .15s 
+ }
+ .confir_res input:checked ~ .checkmark:after {
+ display: block;
+ }
+ .confir_res .checkmark:after {
+ content: "";
+ position: absolute;
+ display: none;
+ left: 7px;
+ top: 3px;
+ width: 5px;
+ height: 10px;
+ border: solid #000;
+ border-width: 0 2px 2px 0;
+ -webkit-transform: rotate(45deg);
+ -ms-transform: rotate(45deg);
+ transform: rotate(45deg);
+ }
+ .scrollbar-inner>.scroll-element.scroll-x {
+ bottom: 2px;
+ height: 6px;
+ left: 0;
+ width: 100%;
+ }
+	.scrollbar-inner::-webkit-scrollbar {
+		 width: 6px; 
+		 } 
+		 .scrollbar-inner::-webkit-scrollbar-thumb {
+		 border-radius: 10px;
+		 -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+		 background-color: #5db4f2;
+		 }
+		 .scrollbar-inner::-webkit-scrollbar-track { 
+		 border-radius: 10px; 
+		 }
+ .scrollbar-inner>.scroll-element, .scrollbar-inner>.scroll-element div {
+ border: none;
+ margin: 0;
+ padding: 0;
+ position: absolute;
+ z-index: 10;
+ }
+ .scroll-element, .scroll-element div {
+ box-sizing: content-box;
+ }
+
+ .scroll-element {
+ display: none;
+ }
+ .scrollbar-inner>.scroll-element div {
+ display: block;
+ height: 100%;
+ left: 0;
+ top: 0;
+ width: 100%;
+ }
+ .scrollbar-inner>.scroll-element .scroll-element_outer {
+ overflow: hidden;
+ }
+ .scrollbar-inner>.scroll-element .scroll-element_outer, .scrollbar-inner>.scroll-element .scroll-element_track, .scrollbar-inner>.scroll-element .scroll-bar {
+ border-radius: 8px;
+ }
+ .scrollbar-inner>.scroll-element.scroll-x.scroll-scrolly_visible .scroll-element_size {
+ left: -12px;
+ }
+ .scrollbar-inner>.scroll-element.scroll-x.scroll-scrolly_visible .scroll-element_track {
+ left: -12px;
+ }
+ .scrollbar-inner>.scroll-element .scroll-element_track {
+ background-color: unset;
+ }
+ .scrollbar-inner>.scroll-element .scroll-element_track, .scrollbar-inner>.scroll-element .scroll-bar {
+ -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=40)";
+ filter: alpha(opacity=40);
+ opacity: 0.9;
+ }
+ .scroll-element .scroll-bar, .scroll-element .scroll-arrow {
+ cursor: default;
+ }
+ .scrollbar-inner>.scroll-element.scroll-y {
+ height: 100%;
+ right: 2px;
+ top: 0;
+ width: 6px;
+ }
+ .form-group {
+ margin-bottom: 1rem;
+ }
+ .box-comment .form-default {
+ color: #7594B6;
+ }
+
+ .box-comment .box-area-input {
+ position: relative;
+ margin-bottom: 16px;
+ }
+ .box-comment .box-area-input textarea {
+ width: 100%; 
+ resize: none;
+ color: #000;
+ font-size: 12px; 
+ outline: 0;
+ overflow: hidden;
+ }
+ .form-default textarea.form-control { 
+ resize: none;
+ }
+ .icon-svg {
+ width: 16px;
+ height: 16px;
+ fill: currentColor;
+ vertical-align: middle;
+ }
+ .form-default .form-control {
+ background: #fff;
+ border-radius: 4px; 
+		border-color:transparent;
+ font-size: 12px;
+ color: #000;
+ -webkit-transition-duration: 200ms;
+ transition-duration: 200ms;
+ -webkit-transition-property: all;
+ transition-property: all;
+ -webkit-transition-timing-function: cubic-bezier(0.7, 1, 0.7, 1);
+ transition-timing-function: cubic-bezier(0.7, 1, 0.7, 1);
+		box-sizing:border-box;
+ }
+ .box-area-input{ 
+		border-radius:6px; 
+ }
+	.box-area-input .send-comment{
+		position: absolute;
+		right: 4px;
+		top: 4px;
+	}
+ .box-comment .box-area-input .flex-comment {
+ 
+ }
+ .box-comment .box-area-input .send-comment .send {
+ background: #FF7B00;
+ border-radius: 6px;
+ color: #fff;
+ }
+
+ .box-comment .box-area-input .send-comment span {
+ width: 28px;
+ height: 28px;
+ display: -webkit-box;
+ display: -webkit-flex;
+ display: -ms-flexbox;
+ display: flex;
+ -webkit-box-align: center;
+ -webkit-align-items: center;
+ -ms-flex-align: center;
+ align-items: center;
+ -webkit-box-pack: center;
+ -webkit-justify-content: center;
+ -ms-flex-pack: center;
+ justify-content: center;
+ color: #7594B6;
+ margin-left: 10px;
+ cursor: pointer;
+ }
+ span.disabled {
+ background: grey !important;
+ }
+ .box-comment .box-area-input .send-comment .send svg {
+ width: 14px;
+ height: 14px;
+ }
+ .box-comment .form-default {
+ color: #7594B6;
+ }
+ .form-default .form-group {
+ margin-bottom: 8px;
+ }
+ input {
+ outline: 0;
+ }
+ .mb10 {
+ margin-bottom: 10px !important;
+ }
+
+ .txt_12 {
+ font-size: 12px;
+ }
+ a.link {
+ color: #1977F3;
+ }
+ .textLeft{
+ text-align: left;
+ }
+ .confir_res {
+ padding-left: 26px;
+ position: relative;
+ cursor: pointer;
+ display: block;
+ margin-bottom: 0.5rem;
+ text-align: left;
+ }
+ .confir_res .text {
+ color: #fff;
+ font-size: 12px;
+ }
+ .confir_res input {
+ position: absolute;
+ opacity: 0;
+ cursor: pointer;
+ }
+
+ input[type=checkbox], input[type=radio] {
+ box-sizing: border-box;
+ padding: 0;
+ }
+ .confir_res .checkmark {
+ position: absolute;
+ top: 0px;
+ left: 0;
+ height: 18px;
+ width: 18px;
+ background: #fff;
+ border: none;
+ box-sizing: border-box;
+ border-radius: 4px;
+ }
+ .btn-primary {
+ color: #fff;
+ background-color: #007bff;
+ border-color: #007bff;
+ }
+ .btn-load-more {
+ display: inline-block;
+ font-weight: 400;
+ text-align: center;
+ white-space: nowrap;
+ vertical-align: middle;
+ -webkit-user-select: none;
+ -moz-user-select: none;
+ -ms-user-select: none;
+ user-select: none;
+ border: 1px solid transparent;
+ padding: 0.375rem 0.75rem;
+ font-size: 1rem;
+ line-height: 1.5;
+ border-radius: 0.25rem;
+ transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+ }
+ .empty-comment{
+ text-align: center;
+ }
+ .box-comment .header-comment .sort:hover .list {
+ top: 100%;
+ opacity: 1;
+ visibility: visible;
+ }</style></section></div></div></main><img style="display:none;" src="game-tracking-views.ajax"></div></div></div> <div class="footer"> <ul class="navbar-nav"><li class="nav-item"><a title="About Us" class="nav-link" href="/about-us">About Us</a></li><li class="nav-item"><a title="Contact Us" class="nav-link" href="/contact-us">Contact Us</a></li><li class="nav-item"><a title="DMCA" class="nav-link" href="/dmca">DMCA</a></li><li class="nav-item"><a title="Privacy Policy" class="nav-link" href="/privacy-policy">Privacy Policy</a></li><li class="nav-item"><a title="Terms Of Use" class="nav-link" href="/terms-of-use">Terms Of Use</a></li></ul></div>
+<button id="button-gotop"> <span class="material-icons">arrow_drop_up</span></button><script src="js/jquery.min.js" type="text/javascript"></script><script type="text/javascript" src="js/infinite-scroll.pkgd.js"></script> <script src="js/vendor.chunk.js" charset="utf-8" type="text/javascript"></script><script src="js/grid.chunk.js" charset="utf-8" type="text/javascript"></script><script src="js/locale.en.chunk.js" charset="utf-8" type="text/javascript"></script><script src="js/scripts.js" type="text/javascript"></script><script src="js/owl.carousel.min.js"></script><link type="text/css" rel="stylesheet" href="css/owl.carousel.min.css"> <link type="text/css" rel="stylesheet" href="css/owl.theme.default.min.css"> <script src="js/api.js"></script><script src="js/jquery.validate.min.js"></script><script type="text/javascript" src="js/jquery.raty.min.js"></script>
+</body></html>
